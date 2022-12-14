@@ -46,7 +46,7 @@ const SideNavigation = ({ children }) => {
       name: "Contact",
       icon: <FaCommentAlt />,
       isPrivate: true,
-    }
+    },
   ];
   return (
     <div className="container">

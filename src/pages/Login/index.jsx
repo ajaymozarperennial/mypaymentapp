@@ -37,10 +37,10 @@ function Login(props) {
 
           console.log(data[0]);
           dispatch(profileNameActions.profileName(data[0].firstname))
+          dispatch(profileNameActions.getIdUserName(data[0].id))
 
           if (data.length) {
             localStorage.setItem("user", JSON.stringify(data[0]));
-
             alert("succesful");
             dispatch(authActions.login());
             navigate("/payment");

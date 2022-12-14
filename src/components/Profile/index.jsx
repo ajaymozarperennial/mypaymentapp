@@ -5,9 +5,11 @@ import { useState } from "react";
 import profileicon from '../../assets/profile.png'
 import { profileNameActions } from "../../store/redux/userName";
 import { dispatch } from "../../store/store";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
   const [value, setUpdatedValue] = useState(false);
+  const { id } = useSelector((state) => state.profileName);
 
   const getUserName = () => {
     let username = JSON.parse(localStorage.getItem("user"));
@@ -25,7 +27,7 @@ export default function Profile() {
   const handleSubmitClick = (e) => {
     console.log(e);
     const response = axios
-      .put(`http://localhost:3001/users/${"2"}`, {
+      .put(`http://localhost:3001/users/${id}`, {
         ...user,
         firstname: value,
       })
