@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Eschweiler",
+      "email": "sebastian@javatpoint.com"
+    },
+    {
+      "firstname": "john",
+      "lastname": "wick",
+      "email": "john@gmail.com",
+      "dob": "1984-06-06",
+      "password": "1234567@",
+      "passwordConfirmation": "1234567@",
+      "id": 2
+    }
+  ]
+}
