@@ -4,15 +4,12 @@ const initialState = {
   profileName: '',
 };
 
-
-
 const profileName = createSlice({
-
   name: 'profile',
   initialState,
   reducers: {
     profileName(state, action) {
-      state.profileName = action.payload; 
+      state.profileName = action.payload;
     }
   },
 });

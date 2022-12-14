@@ -55,7 +55,7 @@ export default function Registration({ onClick }) {
           validationSchema={validate}
           onSubmit={(values, { resetForm }) => {
             handleSubmitClick(values);
-            resetForm({ values: "" });
+            // resetForm({ values: "" });
           }}
         >
           {(FormikProps) => {

@@ -2,11 +2,9 @@ import React from "react";
 import "./index.css";
 import axios from "axios";
 import { useState } from "react";
-import SideMenu from "../../pages/Dashboard";
 import profileicon from '../../assets/profile.png'
 import { profileNameActions } from "../../store/redux/userName";
 import { dispatch } from "../../store/store";
-// import { useEffect } from "react";
 
 export default function Profile() {
   const [value, setUpdatedValue] = useState(false);
@@ -25,15 +23,13 @@ export default function Profile() {
   };
 
   const handleSubmitClick = (e) => {
+    console.log(e);
     const response = axios
-      .put(`http://localhost:3001/users/${"7D7aUlQ"}`, {
+      .put(`http://localhost:3001/users/${"2"}`, {
         ...user,
         firstname: value,
       })
       .then((res) => {
-        console.log("name", res.data);
-      //  const storeName =  localStorage.setItem("user", JSON.stringify(res.data));
-      //  console.log(storeName)
        dispatch(profileNameActions.profileName(res.data.firstname))
       })
       .catch((e) => {
@@ -44,7 +40,6 @@ export default function Profile() {
 
   return (
     <div>
-      {/* <SideMenu /> */}
       <div className="profile">
         <div className="input-group">
           <img src={profileicon} alt='profile'/>

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { authActions } from "../../store/redux/authSlice";
 import { profileNameActions } from "../../store/redux/userName";
 import { dispatch } from "../../store/store";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Registration from "../Register";
 import { useState } from "react";
 function Login(props) {
@@ -27,7 +27,6 @@ function Login(props) {
       .matches(/[^\w]/, "Password requires  at least one special character"),
   });
   const handleSubmitClick = async (e) => {
-    let result = await getResponse();
     async function getResponse() {
       const response = await axios
         .get("http://localhost:3001/users")
@@ -55,6 +54,7 @@ function Login(props) {
         });
       return response;
     }
+    getResponse();
   };
 
   return (
@@ -76,7 +76,6 @@ function Login(props) {
               }}
             >
               {(FormikProps) => {
-                // console.log("data", FormikProps);
                 return (
                   <Form onSubmit={FormikProps.handleSubmit} className="form">
                     <div className="container-input">
@@ -122,7 +121,6 @@ function Login(props) {
                           onBlur={FormikProps.handleBlur}
                         />
                         <p>
-                          {" "}
                           {FormikProps.touched.password &&
                           FormikProps.errors.password ? (
                             <p className="error-msg">

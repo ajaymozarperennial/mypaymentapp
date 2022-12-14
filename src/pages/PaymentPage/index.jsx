@@ -34,17 +34,6 @@ export default function PaymentPage() {
     getDropdowndetails();
   }, []);
 
-  // const getResponse = (value) => {
-  //   Object.entries(value).map(item => {
-  //     return console.log(item)
-  //   })
-  //   for (const key in value) {
-  //     console.log(key);
-  //   }
-
-  //   return value;
-  // };
-
   const getDropdowndetails = async () => {
     const response = await axios
       .get("http://www.mocky.io/v2/5d145fa22f0000ff3ec4f030")
@@ -58,30 +47,26 @@ export default function PaymentPage() {
   };
 
   const handleSubmitClick = (e) => {
-    // navigate("/profile");
     console.log(e);
     const response = axios
       .post("http://www.mocky.io/v2/5d8de422310000b19d2b517a", e)
       .then((res) => {
         setShowMessage(true);
-        // getResponse(res.data);
-        console.log(res.data);
         return setResult(res.data);
       })
       .catch(async (e) => {
-        callApiagain();
+        getFailedApi();
       });
     return response;
   };
 
-  const callApiagain = async () => {
+  const getFailedApi = async () => {
     const fail = await axios
       .get("http://www.mocky.io/v2/5d8de441310000a2612b517c")
       .then((res) => {
         console.log(res);
       })
       .catch((e) => {
-        console.log(e);
         setShowMessage(true);
         setFiledMessage(true)
         setfiledResult(e.response.data.responseMessage);
@@ -91,11 +76,7 @@ export default function PaymentPage() {
 
   return (
     <div>
-      {/* <SideNavigation> */}
       <div className="payment-card">
-        {/* <div>
-          <h2>Payment</h2>
-        </div> */}
         {!showMessage && (
           <div className="payment-header">
             <div className="product-details">
@@ -241,9 +222,6 @@ export default function PaymentPage() {
               <p>Date : 14/12/2022 </p>
               <p>Amount : 455 USD</p>
             </div>
-            {/* <p className="success-message">
-              invoiceNo : <span>{result.invoiceNo}</span>
-            </p> */}
             <p className="success-message">{result.responseMessage}</p>
           </div>
         )} 
@@ -253,7 +231,6 @@ export default function PaymentPage() {
           </div>
         )} 
       </div>
-      {/* </SideNavigation> */}
     </div>
   );
 }

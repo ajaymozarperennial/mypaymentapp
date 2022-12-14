@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="home">
       <SideMenu />
-      <h1>Homeeeeeeeeeeeeeeeeeeeeee</h1>
+      <h1>Home Page</h1>
     </div>
   );
 }

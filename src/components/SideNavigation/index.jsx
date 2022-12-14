@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FaTh,
   FaBars,
   FaUserAlt,
   FaRegChartBar,
   FaCommentAlt,
-  FaShoppingBag,
-  FaThList,
 } from "react-icons/fa";
 
 import "./index.css";
@@ -17,7 +15,6 @@ import { dispatch } from "../../store/store";
 
 const SideNavigation = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isLoggedIn } = useSelector((state) => state.auth);
   const { profileName } = useSelector((state) => state.profileName);
 
   const handleLogout = () => {
@@ -49,18 +46,7 @@ const SideNavigation = ({ children }) => {
       name: "Contact",
       icon: <FaCommentAlt />,
       isPrivate: true,
-    },
-    // {
-    //   path: "/login",
-    //   name: "Logout",
-    //   icon: <FaShoppingBag />,
-    //   isPrivate: false,
-    // },
-    // {
-    //     path:"/register",
-    //     name:"register",
-    //     icon:<FaThList/>
-    // }
+    }
   ];
   return (
     <div className="container">

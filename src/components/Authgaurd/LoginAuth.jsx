@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import SideNavigation from "../SideNavigation";
 
 export default function LoginAuth(props) {
   const { isAuthenticated } = props;
@@ -17,9 +16,7 @@ export default function LoginAuth(props) {
 
   if (isAuthenticated) {
     return (
-      //   <SideNavigation>
       <Outlet />
-      //   </SideNavigation>
     );
   }
 }
