@@ -58,7 +58,6 @@ export default function Registration({ onClick }) {
           }}
         >
           {(FormikProps) => {
-            console.log(FormikProps);
             return (
               <div className="register-details">
                 <Form onSubmit={FormikProps.handleSubmit}>

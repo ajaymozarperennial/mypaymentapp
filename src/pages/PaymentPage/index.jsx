@@ -63,7 +63,7 @@ export default function PaymentPage() {
     const fail = await axios
       .get("http://www.mocky.io/v2/5d8de441310000a2612b517c")
       .then((res) => {
-        console.log(res);
+        return res
       })
       .catch((e) => {
         setShowMessage(true);

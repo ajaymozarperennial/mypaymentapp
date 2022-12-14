@@ -14,7 +14,6 @@ function Login(props) {
   const [modal, setModal] = useState(true);
 
   const navigate = useNavigate();
-  console.log("isLogged", isLoggedIn);
   const loginSchema = Yup.object().shape({
     email: Yup.string()
       .email("Please enter valid email address.")

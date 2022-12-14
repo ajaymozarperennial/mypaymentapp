@@ -19,7 +19,6 @@ export default function Profile() {
   const user = getUserName();
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     const userName = e.target.value;
     setUpdatedValue(userName);
   };
