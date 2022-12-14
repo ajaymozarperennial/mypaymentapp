@@ -1,0 +1,63 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Eschweiler",
+      "email": "sebastian@javatpoint.com"
+    },
+    {
+      "firstname": "Kim",
+      "lastname": "yak",
+      "email": "Kim@gmail.com",
+      "dob": "1999-02-14",
+      "password": "1234567@",
+      "passwordConfirmation": "1234567@",
+      "id": 2
+    },
+    {
+      "firstname": "Woff",
+      "lastname": "Deck",
+      "email": "devid@gmail.com",
+      "dob": "1999-02-14",
+      "password": "1234567@",
+      "passwordConfirmation": "1234567@",
+      "id": 3
+    },
+    {
+      "firstname": "Sams",
+      "lastname": "Deck",
+      "email": "devid@gmail.com",
+      "dob": "1999-02-14",
+      "password": "1234567@",
+      "passwordConfirmation": "1234567@",
+      "id": 4
+    },
+    {
+      "firstname": "Stive",
+      "lastname": "Smith",
+      "email": "Stive@gmail.com",
+      "dob": "1990-06-08",
+      "password": "1234567@",
+      "passwordConfirmation": "1234567@",
+      "id": 5
+    }
+  ]
+}

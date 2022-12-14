@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registration-form {
+  display: flex;
+  justify-content: center;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+}

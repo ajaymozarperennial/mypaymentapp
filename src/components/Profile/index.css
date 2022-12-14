@@ -1,0 +1,13 @@
+
+.input-group>img {
+    width: 120px;
+    margin-left: 60px;
+}
+
+@media only screen and (max-width: 600px) {
+    .profile {
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+    }
+}
