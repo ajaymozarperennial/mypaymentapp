@@ -25,7 +25,6 @@ export default function Profile() {
   };
 
   const handleSubmitClick = (e) => {
-    console.log(e);
     const response = axios
       .put(`http://localhost:3001/users/${id}`, {
         ...user,
@@ -35,7 +34,7 @@ export default function Profile() {
        dispatch(profileNameActions.profileName(res.data.firstname))
       })
       .catch((e) => {
-        console.log(e);
+        return e.data;
       });
     return response;
   };

@@ -34,8 +34,6 @@ function Login(props) {
           let data = res.data.filter(
             (user) => user.email === e.email && user.password === e.password
           );
-
-          console.log(data[0]);
           dispatch(profileNameActions.profileName(data[0].firstname))
           dispatch(profileNameActions.getIdUserName(data[0].id))
 
@@ -50,7 +48,7 @@ function Login(props) {
           return data;
         })
         .catch((e) => {
-          console.log(e);
+          return e.data;
         });
       return response;
     }

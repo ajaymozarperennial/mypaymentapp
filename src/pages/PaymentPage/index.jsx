@@ -226,10 +226,7 @@ export default function PaymentPage() {
                         </p>
                       </div>
 
-                      <button
-                        className="primary confirm-pay-btn"
-                        type="submit"
-                      >
+                      <button className="primary confirm-pay-btn" type="submit">
                         Confirm Payment
                       </button>
                     </Form>
@@ -243,10 +240,11 @@ export default function PaymentPage() {
           <div className="display-message">
             <div className="product-info">
               <p>Product: ABCD</p>
-              <p>Date : 14/12/2022 </p>
+              <p>Date : {[new Date()]} </p>
               <p>Amount : 455 USD</p>
             </div>
             <p className="success-message">{result.responseMessage}</p>
+            <p> {result.invoiceNo && (<p className="success-message">invoice : {result.invoiceNo}</p>)}</p>
           </div>
         )}
         {FiledMessage && showMessage && (

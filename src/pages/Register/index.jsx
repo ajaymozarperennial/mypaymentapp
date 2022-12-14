@@ -28,11 +28,10 @@ export default function Registration({ onClick }) {
     const response = axios
       .post("http://localhost:3001/users", e)
       .then((res) => {
-        console.log(res.data);
         alert("hurry you are Succesfully Registerd !");
       })
       .catch((e) => {
-        console.log(e);
+        return e.data
       });
     return response;
   };
@@ -55,7 +54,7 @@ export default function Registration({ onClick }) {
           validationSchema={validate}
           onSubmit={(values, { resetForm }) => {
             handleSubmitClick(values);
-            // resetForm({ values: "" });
+            resetForm({ values: "" });
           }}
         >
           {(FormikProps) => {
@@ -77,9 +76,10 @@ export default function Registration({ onClick }) {
                       name="firstname"
                       onChange={FormikProps.handleChange}
                       id="firstname"
-                      onBlur={FormikProps.onBlur}
+                      onBlur={FormikProps.handleBlur}
                     />
                     <p>
+                      {/* {FormikProps.touched.firstname && */}
                       {FormikProps.touched.firstname &&
                       FormikProps.errors.firstname ? (
                         <p className="error-msg">
@@ -101,7 +101,7 @@ export default function Registration({ onClick }) {
                       value={FormikProps.values.lastname}
                       name="lastname"
                       onChange={FormikProps.handleChange}
-                      onBlur={FormikProps.onBlur}
+                      onBlur={FormikProps.handleBlur}
                       id="lastname"
                     />
                     <p>
@@ -126,7 +126,7 @@ export default function Registration({ onClick }) {
                       value={FormikProps.values.email}
                       name="email"
                       onChange={FormikProps.handleChange}
-                      onBlur={FormikProps.onBlur}
+                      onBlur={FormikProps.handleBlur}
                       id="email"
                     />
                     <p className="errormessage">
@@ -148,7 +148,7 @@ export default function Registration({ onClick }) {
                       value={FormikProps.values.dob}
                       name="dob"
                       onChange={FormikProps.handleChange}
-                      onBlur={FormikProps.onBlur}
+                      onBlur={FormikProps.handleBlur}
                       id="dob"
                     />
                     <p className="error-msg">
@@ -170,7 +170,7 @@ export default function Registration({ onClick }) {
                       value={FormikProps.values.password}
                       name="password"
                       onChange={FormikProps.handleChange}
-                      onBlur={FormikProps.onBlur}
+                      onBlur={FormikProps.handleBlur}
                       id="password"
                     />
                     <p className="error-msg">
@@ -193,7 +193,7 @@ export default function Registration({ onClick }) {
                       value={FormikProps.values.passwordConfirmation}
                       name="passwordConfirmation"
                       onChange={FormikProps.handleChange}
-                      onBlur={FormikProps.onBlur}
+                      onBlur={FormikProps.handleBlur}
                       id="passwordConfirmation"
                     />
                     <p className="error-msg">
