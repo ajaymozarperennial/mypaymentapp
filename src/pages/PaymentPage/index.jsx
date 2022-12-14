@@ -9,7 +9,7 @@ export default function PaymentPage() {
   const [result, setResult] = useState({});
   const [showMessage, setShowMessage] = useState(false);
   const [FiledMessage, setFiledMessage] = useState(false);
-  const [filedResult, setfiledResult] = useState('')
+  const [filedResult, setfiledResult] = useState("");
 
   const validate = Yup.object({
     firstname: Yup.string()
@@ -40,14 +40,13 @@ export default function PaymentPage() {
       .then((res) => {
         setUsers(res.data.cardTypes);
       })
-      .catch(async (e) => {
+      .catch((e) => {
         console.log(e);
       });
     return response;
   };
 
   const handleSubmitClick = (e) => {
-    console.log(e);
     const response = axios
       .post("http://www.mocky.io/v2/5d8de422310000b19d2b517a", e)
       .then((res) => {
@@ -68,7 +67,7 @@ export default function PaymentPage() {
       })
       .catch((e) => {
         setShowMessage(true);
-        setFiledMessage(true)
+        setFiledMessage(true);
         setfiledResult(e.response.data.responseMessage);
       });
     return fail;
@@ -109,7 +108,11 @@ export default function PaymentPage() {
                 }) => (
                   <div className="payment-form">
                     <Form onSubmit={handleSubmit}>
-                      <div className="input-group ">
+                      <div
+                        className={`input-group  ${
+                          errors.firstname && touched.firstname && "filed-error"
+                        }`}
+                      >
                         <label htmlFor="firstname">Name</label>
                         <input
                           type="text"
@@ -125,7 +128,11 @@ export default function PaymentPage() {
                           ) : null}
                         </p>
                       </div>
-                      <div className="input-group ">
+                      <div
+                        className={`input-group  ${
+                          errors.dropdown && touched.dropdown && "filed-error"
+                        }`}
+                      >
                         <label htmlFor="dropdown">Card Types</label>
                         <div className="select">
                           <select
@@ -155,7 +162,11 @@ export default function PaymentPage() {
                           ) : null}
                         </p>
                       </div>
-                      <div className="input-group ">
+                      <div
+                        className={`input-group  ${
+                          errors.email && touched.email && "filed-error"
+                        }`}
+                      >
                         <label htmlFor="email">Email</label>
                         <input
                           type="text"
@@ -171,7 +182,11 @@ export default function PaymentPage() {
                           ) : null}
                         </p>
                       </div>
-                      <div className="input-group ">
+                      <div
+                        className={`input-group  ${
+                          errors.dob && touched.dob && "filed-error"
+                        }`}
+                      >
                         <label htmlFor="dob">Expiry</label>
                         <input
                           type="month"
@@ -188,7 +203,13 @@ export default function PaymentPage() {
                           ) : null}
                         </p>
                       </div>
-                      <div className="input-group ">
+                      <div
+                        className={`input-group  ${
+                          errors.cardnumber &&
+                          touched.cardnumber &&
+                          "filed-error"
+                        }`}
+                      >
                         <label htmlFor="cardnumber">Card Number</label>
                         <input
                           type="text"
@@ -205,7 +226,10 @@ export default function PaymentPage() {
                         </p>
                       </div>
 
-                      <button className="primary confirm-pay-btn" type="submit">
+                      <button
+                        className="primary confirm-pay-btn"
+                        type="submit"
+                      >
                         Confirm Payment
                       </button>
                     </Form>
@@ -224,12 +248,12 @@ export default function PaymentPage() {
             </div>
             <p className="success-message">{result.responseMessage}</p>
           </div>
-        )} 
-         {FiledMessage && showMessage && (
+        )}
+        {FiledMessage && showMessage && (
           <div className="display-message">
             <p className="failed-message">{filedResult}</p>
           </div>
-        )} 
+        )}
       </div>
     </div>
   );
